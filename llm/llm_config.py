@@ -10,6 +10,6 @@ def get_llm(model_name: str = "qwen2:1.5b",max_tokens: int = 240):
         model=model_name,
         temperature=0.1,
         top_p=0.8,
-        streaming=False,
+        streaming=True,
         max_tokens=max_tokens
     )

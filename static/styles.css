@@ -383,6 +383,44 @@ body {
     }
 }
 
+/* ==================== THINKING PROCESS ==================== */
+.thinking-process {
+    opacity: 0.85;
+    margin-top: -0.5rem;
+}
+
+.thinking-bubble {
+    background: rgba(0, 0, 0, 0.4) !important;
+    border: 1px dashed var(--glass-border) !important;
+    border-left: 2px solid var(--text-dim) !important;
+    padding: 1rem !important;
+}
+
+.thinking-header {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--neon-blue);
+    margin-bottom: 0.8rem;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.thinking-steps {
+    list-style: none;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--text-dim);
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.thinking-steps li {
+    animation: fadeIn 0.3s ease forwards;
+}
+
 /* Responsive */
 @media (max-width: 900px) {
     .app-container {

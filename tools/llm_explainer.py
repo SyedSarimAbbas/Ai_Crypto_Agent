@@ -33,5 +33,4 @@ Current Price (USD): {kb_data.get("current_price_usd", "Information not availabl
 Future Scope: {kb_data.get("future_scope", "Information not available in provided data")}
 """
 
-    response = llm.invoke(prompt)
-    return response.content.strip()
+    return llm.stream(prompt)

@@ -1,5 +1,5 @@
 // ==================== CONFIGURATION ====================
-const API_BASE_URL = 'http://localhost:8000';
+const API_BASE_URL = ''; // Use empty for same-origin relative calls
 
 // ==================== DOM ELEMENTS ====================
 const chatMessages = document.getElementById('chat-messages');
@@ -13,13 +13,9 @@ let isProcessing = false;
 
 // ==================== INITIALIZATION ====================
 document.addEventListener('DOMContentLoaded', () => {
-    // Focus on input
     userInput.focus();
-
-    // Add event listeners
     userInput.addEventListener('keypress', handleKeyPress);
     sendBtn.addEventListener('click', sendMessage);
-
     console.log('🚀 Crypto Agent Frontend Initialized');
 });
 
@@ -79,7 +75,6 @@ function addMessage(text, isUser = false) {
 
     bubble.appendChild(messageText);
     bubble.appendChild(time);
-
     messageDiv.appendChild(avatar);
     messageDiv.appendChild(bubble);
 
@@ -94,10 +89,7 @@ function showErrorMessage(errorText) {
 
     const errorDiv = document.createElement('div');
     errorDiv.className = 'error-message';
-    errorDiv.innerHTML = `
-        <strong>⚠️ Error</strong><br>
-        ${errorText}
-    `;
+    errorDiv.innerHTML = `<strong>⚠️ Error</strong><br>${errorText}`;
 
     chatMessages.appendChild(errorDiv);
     scrollToBottom();
@@ -109,69 +101,91 @@ function showErrorMessage(errorText) {
     }, 5000);
 }
 
-// ==================== API COMMUNICATION ====================
-async function sendMessageToAPI(message) {
-    try {
-        const response = await fetch(`${API_BASE_URL}/api/chat`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ message: message })
-        });
-
-        if (!response.ok) {
-            const errorData = await response.json();
-            throw new Error(errorData.detail || 'Server error occurred');
-        }
-
-        const data = await response.json();
-        return data.response;
-
-    } catch (error) {
-        console.error('API Error:', error);
-        throw error;
-    }
-}
-
-// ==================== MESSAGE SENDING ====================
+// ==================== API COMMUNICATION (STREAMING) ====================
 async function sendMessage() {
     if (isProcessing) return;
 
     const message = userInput.value.trim();
     if (!message) return;
 
-    // Disable input and button
     isProcessing = true;
     sendBtn.disabled = true;
     userInput.disabled = true;
 
-    // Add user message
     addMessage(message, true);
-
-    // Clear input
     userInput.value = '';
-
-    // Show typing indicator
     showTypingIndicator();
+    hideWelcomeMessage();
 
     try {
-        // Send to API
-        const response = await sendMessageToAPI(message);
+        // --- CREATE ASSISTANT BUBBLE ---
+        const assistantMessageDiv = document.createElement('div');
+        assistantMessageDiv.className = 'message assistant';
+        const avatar = document.createElement('div');
+        avatar.className = 'message-avatar';
+        avatar.textContent = '🤖';
+        const bubble = document.createElement('div');
+        bubble.className = 'message-bubble';
+        const messageText = document.createElement('div');
+        messageText.className = 'message-text';
+        messageText.textContent = 'Analyzing... ⏳'; // initial placeholder
+        const time = document.createElement('span');
+        time.className = 'message-time';
+        time.textContent = getCurrentTime();
 
-        // Hide typing indicator
+        bubble.appendChild(messageText);
+        bubble.appendChild(time);
+        assistantMessageDiv.appendChild(avatar);
+        assistantMessageDiv.appendChild(bubble);
+        chatMessages.appendChild(assistantMessageDiv);
+        scrollToBottom();
+
+        // --- FORCE BROWSER TO RENDER "Analyzing..." ---
+        await new Promise(requestAnimationFrame);
+
+        // Small delay then switch to "Thinking..."
+        messageText.textContent = 'Thinking... 💡';
+        await new Promise(r => setTimeout(r, 200));
+
+        // --- FETCH STREAMING RESPONSE ---
+        const response = await fetch('/api/chat', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ message })
+        });
+
+        if (!response.ok) {
+            let errorText = 'Server error occurred';
+            try {
+                const errorData = await response.json();
+                errorText = errorData.detail || errorText;
+            } catch (e) {
+                errorText = await response.text() || errorText;
+            }
+            throw new Error(errorText);
+        }
+
         hideTypingIndicator();
 
-        // Add AI response
-        addMessage(response, false);
+        const reader = response.body.getReader();
+        const decoder = new TextDecoder();
+        let fullResponse = '';
+
+        while (true) {
+            const { done, value } = await reader.read();
+            if (done) break;
+            const chunk = decoder.decode(value, { stream: true });
+            if (chunk) {
+                fullResponse += chunk;
+                messageText.textContent = fullResponse;
+                scrollToBottom();
+            }
+        }
 
     } catch (error) {
         hideTypingIndicator();
-        showErrorMessage(
-            error.message || 'Failed to get response from the server. Please try again.'
-        );
+        showErrorMessage(error.message || 'Failed to get response from the server.');
     } finally {
-        // Re-enable input and button
         isProcessing = false;
         sendBtn.disabled = false;
         userInput.disabled = false;
@@ -179,6 +193,7 @@ async function sendMessage() {
     }
 }
 
+// ==================== KEY HANDLER ====================
 function handleKeyPress(event) {
     if (event.key === 'Enter' && !event.shiftKey) {
         event.preventDefault();

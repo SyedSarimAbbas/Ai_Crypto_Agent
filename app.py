@@ -26,33 +26,49 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+from fastapi.responses import StreamingResponse
+import json
+
 # Request model
 class ChatRequest(BaseModel):
     message: str
 
-# Response model
-class ChatResponse(BaseModel):
-    response: str
-    success: bool
-
 # API Routes
-@app.post("/api/chat", response_model=ChatResponse)
+@app.post("/api/chat")
 async def chat(request: ChatRequest):
     """
-    Process crypto queries and return agent responses
+    Process crypto queries and return a streaming agent response
     """
     try:
         logger.info(f"Received query: {request.message}")
         
-        # Call the crypto agent
-        response = crypto_agent(request.message)
+        # Call the crypto agent (returns a generator or a string)
+        agent_output = crypto_agent(request.message)
         
-        logger.info(f"Agent response generated successfully")
-        
-        return ChatResponse(
-            response=response,
-            success=True
-        )
+        def event_generator():
+            try:
+                if isinstance(agent_output, str):
+                    logger.info(f"Direct string response: {agent_output[:50]}...")
+                    yield agent_output
+                else:
+                    logger.info("Starting stream generation...")
+                    for chunk in agent_output:
+                        # chunk is typically a BaseMessageChunk
+                        content = ""
+                        if hasattr(chunk, 'content'):
+                            content = chunk.content
+                        else:
+                            content = str(chunk)
+                            
+                        if content:
+                            yield content
+                    logger.info("Stream generation complete.")
+            except Exception as e:
+                logger.error(f"Error in stream generator: {str(e)}")
+                yield f"\n[System Error: {str(e)}]"
+
+        return StreamingResponse(event_generator(), media_type="text/plain")
+
     
     except Exception as e:
         logger.error(f"Error processing request: {str(e)}")
@@ -60,6 +76,7 @@ async def chat(request: ChatRequest):
             status_code=500,
             detail=f"Error processing your request: {str(e)}"
         )
+
 
 # Health check endpoint
 @app.get("/api/health")
