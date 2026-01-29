@@ -1,0 +1,444 @@
+{
+    "BTC": {
+        "name": "Bitcoin",
+        "founder": "Satoshi Nakamoto",
+        "founded": "2009",
+        "symbol": "BTC",
+        "description": "The first and largest cryptocurrency by market cap; a decentralized digital store of value.",
+        "price_usd": 88197.38,
+        "stability_pct_24h": 0.13,
+        "future_scope": "Continues as digital gold and institutional reserve asset."
+    },
+    "ETH": {
+        "name": "Ethereum",
+        "founder": "Vitalik Buterin & team",
+        "founded": "2015",
+        "description": "Smart contract platform powering DeFi, NFTs, and decentralized applications.",
+        "current_price_usd": 3091.24,
+        "stability_pct_24h": 0.09,
+        "future_scope": "Upgrades (sharding, rollups) will boost scalability and utility."
+    },
+    "USDT": {
+        "name": "Tether",
+        "founder": "Tether Ltd",
+        "founded": "2014",
+        "description": "USD‑pegged stablecoin used widely for trading and liquidity.",
+        "current_price_usd": 0.9986,
+        "stability_pct_24h": 0.00,
+        "future_scope": "Main stable trading pair; watch for regulatory headwinds."
+    },
+    "BNB": {
+        "name": "Binance Coin",
+        "founder": "Changpeng Zhao & Yi He",
+        "founded": "2017",
+        "description": "Utility token for Binance exchange fees & BNB Chain ecosystem.",
+        "current_price_usd": 912.47,
+        "stability_pct_24h": 0.90,
+        "future_scope": "Strong utility in Binance ecosystem, continued burn reduces supply."
+    },
+    "XRP": {
+        "name": "XRP",
+        "founder": "Jed McCaleb, Chris Larsen, Arthur Britto",
+        "founded": "2012",
+        "description": "Payments‑focused token for fast cross‑border transfers.",
+        "current_price_usd": 2.09,
+        "stability_pct_24h": 0.36,
+        "future_scope": "Adoption by financial institutions depends on legal clarity."
+    },
+    "USDC": {
+        "name": "USD Coin",
+        "founder": "Circle & Coinbase",
+        "founded": "2018",
+        "description": "USD‑backed stablecoin used widely across DeFi and exchanges.",
+        "current_price_usd": 0.9996,
+        "stability_pct_24h": 0.00,
+        "future_scope": "Stable liquidity asset; may face evolving regulation."
+    },
+    "SOL": {
+        "name": "Solana",
+        "founder": "Anatoly Yakovenko & team",
+        "founded": "2020",
+        "description": "High‑speed, low‑cost blockchain for DeFi and apps.",
+        "current_price_usd": 135.96,
+        "stability_pct_24h": 0.06,
+        "future_scope": "Strong ecosystem growth; competition with Ethereum layer‑2s."
+    },
+    "TRX": {
+        "name": "TRON",
+        "founder": "Justin Sun",
+        "founded": "2017",
+        "description": "Blockchain for decentralized apps and content sharing.",
+        "current_price_usd": 0.2985,
+        "stability_pct_24h": 0.29,
+        "future_scope": "Continued use in entertainment and decentralized apps."
+    },
+    "STETH": {
+        "name": "Staked Ether",
+        "founder": "Ethereum ecosystem",
+        "founded": "2019",
+        "description": "Token representing staked ETH earning staking rewards.",
+        "current_price_usd": null,
+        "stability_pct_24h": null,
+        "future_scope": "Useful for DeFi while ETH remains staked."
+    },
+    "DOGE": {
+        "name": "Dogecoin",
+        "founder": "Billy Markus & Jackson Palmer",
+        "founded": "2013",
+        "description": "Community meme coin with wide social appeal.",
+        "current_price_usd": 0.1398,
+        "stability_pct_24h": 0.24,
+        "future_scope": "Driven by community sentiment and media influence."
+    },
+    "FIGR_HELOC": {
+        "name": "Figure Heloc",
+        "founder": "Figure Technologies",
+        "founded": "2021",
+        "description": "Asset token tied to home equity lending products.",
+        "current_price_usd": 1.03,
+        "stability_pct_24h": 2.29,
+        "future_scope": "Niche use in tokenized real‑world assets."
+    },
+    "ADA": {
+        "name": "Cardano",
+        "founder": "Charles Hoskinson",
+        "founded": "2015",
+        "description": "Research‑driven blockchain for scalable dApps.",
+        "current_price_usd": 0.3907,
+        "stability_pct_24h": 0.84,
+        "future_scope": "Steady development; slower but rigorous roadmap."
+    },
+    "WSTETH": {
+        "name": "Wrapped stETH",
+        "founder": "DeFi community",
+        "founded": "2020",
+        "description": "Tokenized version of staked ETH usable in DeFi.",
+        "current_price_usd": 5679.80,
+        "stability_pct_24h": 2.58,
+        "future_scope": "Useful for liquidity in advanced DeFi strategies."
+    },
+    "BCH": {
+        "name": "Bitcoin Cash",
+        "founder": "Bitcoin developers (fork)",
+        "founded": "2017",
+        "description": "Bitcoin fork for faster transactions.",
+        "current_price_usd": 652.76,
+        "stability_pct_24h": 2.32,
+        "future_scope": "Niche payments usage; less momentum than BTC."
+    },
+    "WBT": {
+        "name": "Wrapped Bitcoin",
+        "founder": "DeFi community",
+        "founded": "2019",
+        "description": "BTC usable in Ethereum DeFi.",
+        "current_price_usd": 85500.0,
+        "stability_pct_24h": null,
+        "future_scope": "Bridge asset between BTC and Ethereum."
+    },
+    "WBTC": {
+        "name": "Wrapped Bitcoin",
+        "founder": "DeFi community",
+        "founded": "2019",
+        "description": "Token representing Bitcoin on Ethereum.",
+        "current_price_usd": 85500.0,
+        "stability_pct_24h": null,
+        "future_scope": "Supports DeFi lending and yield."
+    },
+    "WBETH": {
+        "name": "Wrapped Beacon ETH",
+        "founder": "DeFi community",
+        "founded": "2020",
+        "description": "Wrapped version of staked ETH.",
+        "current_price_usd": 5041.66,
+        "stability_pct_24h": 2.50,
+        "future_scope": "Used for DeFi liquidity similar to ETH."
+    },
+    "WEETH": {
+        "name": "Wrapped eETH",
+        "founder": "DeFi community",
+        "founded": "2020",
+        "description": "Another wrapped ETH token used in DeFi.",
+        "current_price_usd": 5040.40,
+        "stability_pct_24h": 2.49,
+        "future_scope": "DeFi yield and liquidity provision."
+    },
+    "XMR": {
+        "name": "Monero",
+        "founder": "Riccardo Spagni & team",
+        "founded": "2014",
+        "description": "Privacy‑focused coin.",
+        "current_price_usd": 479.48,
+        "stability_pct_24h": 5.70,
+        "future_scope": "Strong privacy niche; regulatory scrutiny possible."
+    },
+    "LEO": {
+        "name": "UNUS SED LEO",
+        "founder": "Bitfinex",
+        "founded": "2021",
+        "description": "Exchange token for Bitfinex ecosystem.",
+        "current_price_usd": 9.05,
+        "stability_pct_24h": 0.26,
+        "future_scope": "Utility tied to exchange fees and benefits."
+    },
+    "XLM": {
+        "name": "Stellar",
+        "founder": "Jed McCaleb",
+        "founded": "2014",
+        "description": "Payments blockchain for cross‑border transfers.",
+        "current_price_usd": 0.29,
+        "stability_pct_24h": null,
+        "future_scope": "Enterprise partnerships and payments focus."
+    },
+    "ZEC": {
+        "name": "Zcash",
+        "founder": "Zooko Wilcox‑O’Hearn",
+        "founded": "2016",
+        "description": "Privacy coin with shielded transactions.",
+        "current_price_usd": 367.14,
+        "stability_pct_24h": 19.77,
+        "future_scope": "Privacy niche; regulatory pressures possible."
+    },
+    "CC": {
+        "name": "CC Token",
+        "founder": null,
+        "founded": null,
+        "description": "Smaller cap token (Check data sources).",
+        "current_price_usd": 0.08,
+        "stability_pct_24h": 1.30,
+        "future_scope": "Highly speculative asset."
+    },
+    "SUI": {
+        "name": "Sui",
+        "founder": "Mysten Labs",
+        "founded": "2023",
+        "description": "Layer‑1 blockchain focusing on scalability.",
+        "current_price_usd": 1.38,
+        "stability_pct_24h": 8.27,
+        "future_scope": "Competes in scalable dApp markets."
+    },
+    "DAI": {
+        "name": "Dai",
+        "founder": "MakerDAO",
+        "founded": "2019",
+        "description": "Decentralized USD‑pegged stablecoin.",
+        "current_price_usd": 1.00,
+        "stability_pct_24h": null,
+        "future_scope": "Core DeFi liquidity stable asset."
+    },
+    "AVAX": {
+        "name": "Avalanche",
+        "founder": "Ava Labs",
+        "founded": "2020",
+        "description": "High‑throughput smart contract platform.",
+        "current_price_usd": 12.94,
+        "stability_pct_24h": 8.09,
+        "future_scope": "Strong DeFi/enterprise adoption focus."
+    },
+    "ATOM": {
+        "name": "Cosmos",
+        "founder": "Jae Kwon",
+        "founded": "2019",
+        "description": "Interoperability blockchain ecosystem.",
+        "current_price_usd": null,
+        "stability_pct_24h": null,
+        "future_scope": "Blockchain interoperability."
+    },
+    "MATIC": {
+        "name": "Polygon",
+        "founder": "Jaynti Kanani, Sandeep Nailwal, Anurag Arjun",
+        "founded": "2017",
+        "description": "Ethereum layer‑2 scaling solution.",
+        "current_price_usd": null,
+        "stability_pct_24h": null,
+        "future_scope": "Scaling solutions for Ethereum."
+    },
+    "DOT": {
+        "name": "Polkadot",
+        "founder": "Gavin Wood",
+        "founded": "2020",
+        "description": "Interoperability protocol for multiple blockchains.",
+        "current_price_usd": 2.04,
+        "stability_pct_24h": 9.76,
+        "future_scope": "Cross‑chain connectivity."
+    },
+    "TON": {
+        "name": "Toncoin",
+        "founder": "Telegram Open Network community",
+        "founded": "2021",
+        "description": "Token linked to Telegram ecosystem.",
+        "current_price_usd": 1.48,
+        "stability_pct_24h": 5.21,
+        "future_scope": "Mass messaging and payments."
+    },
+    "SHIB": {
+        "name": "Shiba Inu",
+        "founder": "Ryoshi (anonymous)",
+        "founded": "2020",
+        "description": "Meme coin with strong community.",
+        "current_price_usd": 0.0000,
+        "stability_pct_24h": 0.27,
+        "future_scope": "Highly speculative social‑driven coin."
+    },
+    "LINK": {
+        "name": "Chainlink",
+        "founder": "Sergey Nazarov",
+        "founded": "2017",
+        "description": "Decentralized oracle network.",
+        "current_price_usd": 13.20,
+        "stability_pct_24h": 0.47,
+        "future_scope": "Critical DeFi data infrastructure."
+    },
+    "ICP": {
+        "name": "Internet Computer",
+        "founder": "DFINITY Foundation",
+        "founded": "2021",
+        "description": "Blockchain focused on decentralized compute.",
+        "current_price_usd": null,
+        "stability_pct_24h": null,
+        "future_scope": "Decentralized cloud computing."
+    },
+    "NEAR": {
+        "name": "NEAR Protocol",
+        "founder": "Illia Polosukhin & Alexander Skidanov",
+        "founded": "2020",
+        "description": "Developer-friendly layer‑1 blockchain.",
+        "current_price_usd": 1.69,
+        "stability_pct_24h": 1.8,
+        "future_scope": "Growing dApp ecosystem."
+    },
+    "APT": {
+        "name": "Aptos",
+        "founder": "ex‑Meta engineers",
+        "founded": "2022",
+        "description": "High‑performance blockchain.",
+        "current_price_usd": null,
+        "stability_pct_24h": null,
+        "future_scope": "Performance‑oriented apps."
+    },
+    "VET": {
+        "name": "VeChain",
+        "founder": "Sunny Lu",
+        "founded": "2015",
+        "description": "Supply chain‑focused blockchain.",
+        "current_price_usd": null,
+        "stability_pct_24h": null,
+        "future_scope": "Enterprise adoption in logistics."
+    },
+    "HBAR": {
+        "name": "Hedera",
+        "founder": "Leemon Baird & Mance Harmon",
+        "founded": "2018",
+        "description": "Hashgraph‑based enterprise DLT.",
+        "current_price_usd": 0.13,
+        "stability_pct_24h": 2.56,
+        "future_scope": "Enterprise applications."
+    },
+    "ALGO": {
+        "name": "Algorand",
+        "founder": "Silvio Micali",
+        "founded": "2019",
+        "description": "Pure proof‑of‑stake blockchain.",
+        "current_price_usd": null,
+        "stability_pct_24h": null,
+        "future_scope": "High‑performance dApps."
+    },
+    "ETC": {
+        "name": "Ethereum Classic",
+        "founder": "Original Ethereum community",
+        "founded": "2016",
+        "description": "Original Ethereum chain.",
+        "current_price_usd": null,
+        "stability_pct_24h": null,
+        "future_scope": "Legacy chain with niche projects."
+    },
+    "UNI": {
+        "name": "Uniswap",
+        "founder": "Hayden Adams",
+        "founded": "2018",
+        "description": "Leading decentralized exchange token.",
+        "current_price_usd": 5.54,
+        "stability_pct_24h": 8.65,
+        "future_scope": "DeFi trading utility."
+    },
+    "FIL": {
+        "name": "Filecoin",
+        "founder": "Juan Benet",
+        "founded": "2017",
+        "description": "Decentralized storage network.",
+        "current_price_usd": null,
+        "stability_pct_24h": null,
+        "future_scope": "Storage decentralization."
+    },
+    "THETA": {
+        "name": "Theta Network",
+        "founder": "Mitch Liu & Jieyi Long",
+        "founded": "2017",
+        "description": "Blockchain for video streaming.",
+        "current_price_usd": null,
+        "stability_pct_24h": null,
+        "future_scope": "Media and streaming decentralization."
+    },
+    "RUNE": {
+        "name": "THORChain",
+        "founder": "THORChain community",
+        "founded": "2018",
+        "description": "Cross‑chain liquidity and swapping.",
+        "current_price_usd": null,
+        "stability_pct_24h": null,
+        "future_scope": "Cross‑chain asset swaps."
+    },
+    "PEPE": {
+        "name": "Pepe Coin",
+        "founder": "Anonymous",
+        "founded": "2023",
+        "description": "Meme coin trending in social trading.",
+        "current_price_usd": 0.000056133,
+        "stability_pct_24h": 6.7,
+        "future_scope": "Highly speculative memecoin."
+    },
+    "BONK": {
+        "name": "Bonk",
+        "founder": "Solana community",
+        "founded": "2023",
+        "description": "Solana ecosystem memecoin.",
+        "current_price_usd": null,
+        "stability_pct_24h": null,
+        "future_scope": "Community‑driven speculative asset."
+    },
+    "WIF": {
+        "name": "Dogwifhat",
+        "founder": "Anonymous",
+        "founded": "2024",
+        "description": "Memecoin in high‑interest niche.",
+        "current_price_usd": null,
+        "stability_pct_24h": null,
+        "future_scope": "Speculative meme token."
+    },
+    "PENGU": {
+        "name": "Pudgy Penguins",
+        "founder": "NFT community",
+        "founded": "2021",
+        "description": "NFT‑linked meme token.",
+        "current_price_usd": null,
+        "stability_pct_24h": null,
+        "future_scope": "NFT ecosystem engagement."
+    },
+    "PNUT": {
+        "name": "Peanut the Squirrel",
+        "founder": "Anonymous",
+        "founded": "2024",
+        "description": "Social meme coin.",
+        "current_price_usd": null,
+        "stability_pct_24h": null,
+        "future_scope": "Speculative meme token."
+    },
+    "FDUSD": {
+        "name": "First Digital USD",
+        "founder": "First Digital Group",
+        "founded": "2023",
+        "description": "USD‑pegged stablecoin.",
+        "current_price_usd": 1.00,
+        "stability_pct_24h": null,
+        "future_scope": "Stablecoin liquidity asset."
+    }
+}

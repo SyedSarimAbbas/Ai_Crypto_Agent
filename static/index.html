@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AI-powered crypto knowledge agent providing factual cryptocurrency information">
+    <title>🪙 Crypto Nexus | Advanced AI Agent</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+
+<body>
+    <!-- Video Background -->
+    <div class="video-background">
+        <iframe
+            src="https://www.youtube.com/embed/bBC-nXj3Ng4?autoplay=1&mute=1&loop=1&playlist=bBC-nXj3Ng4&controls=0&showinfo=0&rel=0&modestbranding=1&enablejsapi=1&iv_load_policy=3"
+            frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
+        </iframe>
+        <div class="video-overlay"></div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="app-container">
+        <!-- Sidebar / Header Area -->
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="logo-wrapper">
+                    <span class="logo-icon">💠</span>
+                </div>
+                <div class="brand-text">
+                    <h1>CRYPTO<br>NEXUS</h1>
+                    <p>AI INTELLIGENCE NOODE</p>
+                </div>
+            </div>
+
+            <div class="capabilities-panel">
+                <h3>SYSTEM STATUS</h3>
+                <div class="status-item online">
+                    <span class="status-dot"></span>
+                    <span>Knowledge Base: ONLINE</span>
+                </div>
+                <div class="status-item online">
+                    <span class="status-dot"></span>
+                    <span>CoinGecko API: ACTIVE</span>
+                </div>
+                <div class="status-item processing">
+                    <span class="status-dot"></span>
+                    <span>Neural Engine: READY</span>
+                </div>
+            </div>
+
+            <div class="quick-stats">
+                <h3>QUICK ACCESS</h3>
+                <div class="chip-grid">
+                    <button class="chip" onclick="sendExample('BTC')">BTC</button>
+                    <button class="chip" onclick="sendExample('ETH')">ETH</button>
+                    <button class="chip" onclick="sendExample('SOL')">SOL</button>
+                    <button class="chip" onclick="sendExample('BNB')">BNB</button>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Chat Area -->
+        <main class="chat-interface">
+            <div class="chat-viewport" id="chat-messages">
+                <!-- Welcome State -->
+                <div id="welcome-message" class="welcome-matrix">
+                    <div class="hologram-effect"></div>
+                    <h2>INITIALIZING SESSION...</h2>
+                    <p>Welcome to Crypto Nexus. State your query regarding any cryptocurrency asset.</p>
+                    <div class="command-suggestions">
+                        <code>/analyze btc</code>
+                        <code>/price eth</code>
+                        <code>/info solana</code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Input Area -->
+            <div class="input-zone">
+                <div class="input-wrapper">
+                    <input type="text" id="user-input" class="cyber-input" placeholder="Enter command or query..."
+                        autocomplete="off">
+                    <button id="send-btn" class="cyber-btn" onclick="sendMessage()">
+                        <span class="btn-content">TRANSMIT</span>
+                        <span class="btn-glitch"></span>
+                    </button>
+                </div>
+
+                <!-- Typing Indicator -->
+                <div id="typing-indicator" class="system-status" style="display: none;">
+                    <span class="blink">▌</span> PROCESSING DATA STREAM...
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+
+</html>

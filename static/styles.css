@@ -1,0 +1,409 @@
+/* ==================== CYBERPUNK THEME VARIABLES ==================== */
+:root {
+    --neon-blue: #00f3ff;
+    --neon-purple: #bc13fe;
+    --dark-bg: #050510;
+    --panel-bg: rgba(10, 15, 30, 0.65);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --text-main: #e0e6ed;
+    --text-dim: #8b9bb4;
+    --matrix-green: #0aff0a;
+
+    --font-heading: 'Outfit', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+
+    --glow-blue: 0 0 20px rgba(0, 243, 255, 0.3);
+    --glow-purple: 0 0 20px rgba(188, 19, 254, 0.3);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--dark-bg);
+    color: var(--text-main);
+    font-family: var(--font-heading);
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* ==================== VIDEO BACKGROUND ==================== */
+.video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.video-background iframe {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 177.78vh;
+    /* 16:9 Aspect Ratio */
+    height: 100vh;
+    min-width: 100%;
+    min-height: 56.25vw;
+    transform: translate(-50%, -50%) scale(1.2);
+    /* Scale up to remove borders */
+    pointer-events: none;
+    opacity: 0.6;
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(5, 5, 16, 0.3) 0%, rgba(5, 5, 16, 0.95) 100%);
+    backdrop-filter: blur(2px);
+}
+
+/* ==================== LAYOUT ==================== */
+.app-container {
+    display: flex;
+    height: 100vh;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 2rem;
+    gap: 2rem;
+    position: relative;
+    z-index: 10;
+}
+
+/* ==================== SIDEBAR ==================== */
+.sidebar {
+    width: 300px;
+    background: var(--panel-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.brand {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.logo-icon {
+    font-size: 2.5rem;
+    animation: pulse 3s infinite;
+    text-shadow: var(--glow-blue);
+}
+
+.brand-text h1 {
+    font-size: 1.2rem;
+    line-height: 1;
+    font-weight: 700;
+    letter-spacing: 2px;
+    background: linear-gradient(to right, #fff, var(--neon-blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.brand-text p {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    color: var(--neon-purple);
+    letter-spacing: 1px;
+}
+
+.capabilities-panel h3,
+.quick-stats h3 {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--text-dim);
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+}
+
+.status-item {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-size: 0.85rem;
+    margin-bottom: 0.8rem;
+    font-family: var(--font-mono);
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--matrix-green);
+    box-shadow: 0 0 10px var(--matrix-green);
+}
+
+.chip-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.8rem;
+}
+
+.chip {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--glass-border);
+    color: var(--text-main);
+    padding: 0.8rem;
+    border-radius: 12px;
+    cursor: pointer;
+    font-family: var(--font-mono);
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.chip:hover {
+    background: rgba(0, 243, 255, 0.1);
+    border-color: var(--neon-blue);
+    box-shadow: var(--glow-blue);
+}
+
+/* ==================== CHAT INTERFACE ==================== */
+.chat-interface {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: var(--panel-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.chat-viewport {
+    flex: 1;
+    padding: 2rem;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Scrollbar */
+.chat-viewport::-webkit-scrollbar {
+    width: 6px;
+}
+
+.chat-viewport::-webkit-scrollbar-thumb {
+    background: var(--glass-border);
+    border-radius: 3px;
+}
+
+/* Messages */
+.message {
+    max-width: 80%;
+    padding: 1.5rem;
+    border-radius: 16px;
+    font-size: 1rem;
+    line-height: 1.6;
+    position: relative;
+    animation: slideUp 0.4s ease;
+}
+
+.message.user {
+    align-self: flex-end;
+    background: linear-gradient(135deg, rgba(188, 19, 254, 0.2), rgba(188, 19, 254, 0.05));
+    border: 1px solid rgba(188, 19, 254, 0.3);
+    border-bottom-right-radius: 4px;
+}
+
+.message.assistant {
+    align-self: flex-start;
+    background: linear-gradient(135deg, rgba(0, 243, 255, 0.1), rgba(0, 243, 255, 0.02));
+    border: 1px solid rgba(0, 243, 255, 0.2);
+    border-bottom-left-radius: 4px;
+}
+
+.message-avatar {
+    display: none;
+    /* Hidden for cleaner look, relying on alignment */
+}
+
+.message-time {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--text-dim);
+    margin-top: 0.5rem;
+    display: block;
+    opacity: 0.7;
+}
+
+/* Welcome State */
+.welcome-matrix {
+    text-align: center;
+    margin: auto;
+    padding: 2rem;
+    border: 1px solid var(--glass-border);
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    max-width: 600px;
+}
+
+.welcome-matrix h2 {
+    font-family: var(--font-mono);
+    color: var(--neon-blue);
+    margin-bottom: 1rem;
+    text-shadow: var(--glow-blue);
+}
+
+.command-suggestions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 1.5rem;
+}
+
+.command-suggestions code {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--neon-purple);
+    border: 1px solid transparent;
+}
+
+/* ==================== INPUT ZONE ==================== */
+.input-zone {
+    padding: 1.5rem 2rem;
+    border-top: 1px solid var(--glass-border);
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.input-wrapper {
+    display: flex;
+    gap: 1rem;
+    position: relative;
+}
+
+.cyber-input {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--glass-border);
+    padding: 1.2rem;
+    border-radius: 12px;
+    color: #fff;
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.cyber-input:focus {
+    border-color: var(--neon-blue);
+    box-shadow: var(--glow-blue);
+    background: rgba(0, 243, 255, 0.02);
+}
+
+.cyber-btn {
+    background: var(--neon-blue);
+    color: #000;
+    border: none;
+    padding: 0 2rem;
+    border-radius: 12px;
+    font-family: var(--font-mono);
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    clip-path: polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0 30%);
+}
+
+.cyber-btn:hover {
+    background: #fff;
+    box-shadow: 0 0 20px #fff;
+    transform: translateY(-2px);
+}
+
+.system-status {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--neon-blue);
+    margin-top: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.blink {
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 0.8;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.1);
+    }
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .app-container {
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    .sidebar {
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 1.5rem;
+        align-items: center;
+    }
+
+    .capabilities-panel,
+    .quick-stats {
+        display: none;
+    }
+
+    .chat-interface {
+        height: 70vh;
+    }
+}
