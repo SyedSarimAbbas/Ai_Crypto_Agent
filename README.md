@@ -74,7 +74,7 @@ API_PORT=8000
 ### 3. Installation
 Clone the repository and install dependencies:
 ```bash
-git clone https://github.com/your-username/crypto-nexus.git
+git clone https://github.com/SyedSarimAbbas/crypto-nexus.git
 cd crypto-nexus
 pip install -r requirements.txt
 ```
